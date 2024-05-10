@@ -1,0 +1,13 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://cumi8er0n2iqe"
+
+[deps]
+
+source_file="res://keyboard.csv"
+[params]
+
+compress=true
+delimiter=0

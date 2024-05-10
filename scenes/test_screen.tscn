@@ -1,0 +1,195 @@
+[gd_scene load_steps=12 format=3 uid="uid://bmxmbfpp5h5cc"]
+
+[ext_resource type="Script" path="res://scripts/test_screen.gd" id="1_6nid1"]
+[ext_resource type="Texture2D" uid="uid://bi6qkpmrc5t2y" path="res://images/Purple.png" id="2_klmo2"]
+[ext_resource type="Texture2D" uid="uid://i5kfwiq3p73q" path="res://images/keyboard_help.jpg" id="3_dom6o"]
+[ext_resource type="Texture2D" uid="uid://pjdqh61xv5v8" path="res://images/key.png" id="4_so327"]
+[ext_resource type="Texture2D" uid="uid://cfy7td3xtej52" path="res://images/Yellow.png" id="5_wfg17"]
+[ext_resource type="AudioStream" uid="uid://ccaviysb1cq24" path="res://sound/spacebar-click-keyboard.mp3" id="6_vy3gu"]
+[ext_resource type="AudioStream" uid="uid://2pdqvqxv1hca" path="res://sound/success-1-6297.mp3" id="7_w11hh"]
+[ext_resource type="AudioStream" uid="uid://cfxrcrhrw54ps" path="res://sound/error1.mp3" id="8_eqr3s"]
+
+[sub_resource type="Animation" id="Animation_jxdjb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_4bbln"]
+resource_name = "new_animation"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ai6ak"]
+_data = {
+"RESET": SubResource("Animation_jxdjb"),
+"new_animation": SubResource("Animation_4bbln")
+}
+
+[node name="test_screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6nid1")
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_klmo2")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 10
+
+[node name="Text" type="RichTextLabel" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.45098, 0.45098, 0.45098, 1)
+theme_override_colors/font_selected_color = Color(1, 0.517647, 0, 1)
+theme_override_colors/selection_color = Color(1, 0.517647, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0.517647, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 0.517647, 0, 1)
+theme_override_colors/table_odd_row_bg = Color(1, 0.517647, 0, 1)
+theme_override_colors/table_even_row_bg = Color(1, 0.517647, 0, 1)
+theme_override_colors/table_border = Color(1, 0.517647, 0, 1)
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text_direction = 2
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer"]
+texture_repeat = 1
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("3_dom6o")
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="VBoxContainer/TextureRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/TextureRect2/Control"]
+position = Vector2(-19, -10)
+texture = ExtResource("4_so327")
+hframes = 5
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="VBoxContainer/TextureRect2/Control"]
+deterministic = true
+libraries = {
+"": SubResource("AnimationLibrary_ai6ak")
+}
+autoplay = "new_animation"
+
+[node name="Result" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 30
+
+[node name="TextureRect" type="TextureRect" parent="Result"]
+layout_mode = 2
+texture = ExtResource("5_wfg17")
+stretch_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Result"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 150
+theme_override_constants/margin_right = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Result/MarginContainer"]
+layout_mode = 2
+
+[node name="ResultSpeed" type="Label" parent="Result/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.450649, 0.450648, 0.450648, 1)
+theme_override_colors/font_shadow_color = Color(1, 0.517647, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 0.517647, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Typing speed 100 chars per minute"
+
+[node name="ResultErrors" type="Label" parent="Result/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Error rate 10%"
+
+[node name="KeySound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_vy3gu")
+
+[node name="WinSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_w11hh")
+
+[node name="ErrorSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_eqr3s")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -113.0
+offset_right = 952.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.176471, 0.176471, 0.376471, 1)
+theme_override_colors/font_shadow_color = Color(1, 0.517647, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 0.517647, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "TEST
+print visible text"
