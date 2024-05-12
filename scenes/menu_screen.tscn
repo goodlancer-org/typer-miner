@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://bprq75q63kw0v"]
+[gd_scene load_steps=7 format=3 uid="uid://bprq75q63kw0v"]
 
 [ext_resource type="Script" path="res://scripts/menu_screen.gd" id="1_g3053"]
+[ext_resource type="Texture2D" uid="uid://dvco26q6gxc5t" path="res://images/Mountain_guitar.webp" id="2_8b7q2"]
 [ext_resource type="Texture2D" uid="uid://c06ibogskgu8v" path="res://images/Blue.png" id="2_u87c5"]
 [ext_resource type="AudioStream" uid="uid://dnu33icy1l6kt" path="res://sound/Happy Mistake - RKVC.mp3" id="3_e65wx"]
 [ext_resource type="FontFile" uid="uid://beaeaw67k2s71" path="res://fonts/sofachrome rg it.otf" id="4_y5ywt"]
+[ext_resource type="Texture2D" uid="uid://6vyua4d1rxbu" path="res://images/mole.webp" id="6_5qha3"]
 
 [node name="menu_screen" type="Control"]
 layout_mode = 3
@@ -22,14 +24,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_u87c5")
-stretch_mode = 1
+texture = ExtResource("2_8b7q2")
+expand_mode = 5
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_e65wx")
 autoplay = true
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -37,14 +40,24 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 100
-theme_override_constants/margin_top = 100
+theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 100
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+texture = ExtResource("2_u87c5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1.9493e-06, 0.352194, 0.431032, 1)
 theme_override_colors/font_shadow_color = Color(1, 0.517647, 0, 1)
@@ -54,7 +67,7 @@ theme_override_font_sizes/font_size = 60
 text = "typer miner"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.933326, 4.81308e-06, 9.62615e-07, 1)
 theme_override_colors/font_shadow_color = Color(1, 0.517647, 0, 1)
@@ -69,7 +82,30 @@ size_flags_stretch_ratio = 0.0
 theme_override_constants/margin_top = 75
 theme_override_constants/margin_right = 0
 
-[node name="start_menubutton" type="MenuButton" parent="MarginContainer/VBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/VBoxContainer2/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_u87c5")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer2/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer2/MarginContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="start_menubutton" type="MenuButton" parent="MarginContainer/VBoxContainer/VBoxContainer2/MarginContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.176471, 0.176471, 0.376471, 1)
 theme_override_colors/font_pressed_color = Color(1, 0.517647, 0, 1)
@@ -81,7 +117,7 @@ theme_override_fonts/font = ExtResource("4_y5ywt")
 theme_override_font_sizes/font_size = 25
 text = "STARt game"
 
-[node name="test_menubutton" type="MenuButton" parent="MarginContainer/VBoxContainer"]
+[node name="test_menubutton" type="MenuButton" parent="MarginContainer/VBoxContainer/VBoxContainer2/MarginContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.176471, 0.176471, 0.376471, 1)
 theme_override_colors/font_pressed_color = Color(1, 0.517647, 0, 1)
@@ -93,7 +129,7 @@ theme_override_fonts/font = ExtResource("4_y5ywt")
 theme_override_font_sizes/font_size = 25
 text = "TEST"
 
-[node name="options_menubutton" type="MenuButton" parent="MarginContainer/VBoxContainer"]
+[node name="options_menubutton" type="MenuButton" parent="MarginContainer/VBoxContainer/VBoxContainer2/MarginContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.176909, 0.17628, 0.376298, 1)
 theme_override_colors/font_pressed_color = Color(1, 0.517647, 0, 1)
@@ -105,7 +141,7 @@ theme_override_fonts/font = ExtResource("4_y5ywt")
 theme_override_font_sizes/font_size = 25
 text = "OPTIONS"
 
-[node name="help_menubutton" type="MenuButton" parent="MarginContainer/VBoxContainer"]
+[node name="help_menubutton" type="MenuButton" parent="MarginContainer/VBoxContainer/VBoxContainer2/MarginContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.176471, 0.176471, 0.376471, 1)
 theme_override_colors/font_pressed_color = Color(1, 0.517647, 0, 1)
@@ -117,7 +153,7 @@ theme_override_fonts/font = ExtResource("4_y5ywt")
 theme_override_font_sizes/font_size = 25
 text = "HELP"
 
-[node name="credits_menubutton" type="MenuButton" parent="MarginContainer/VBoxContainer"]
+[node name="credits_menubutton" type="MenuButton" parent="MarginContainer/VBoxContainer/VBoxContainer2/MarginContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.176471, 0.176471, 0.376471, 1)
 theme_override_colors/font_pressed_color = Color(1, 0.517647, 0, 1)
@@ -129,7 +165,7 @@ theme_override_fonts/font = ExtResource("4_y5ywt")
 theme_override_font_sizes/font_size = 25
 text = "CREDIts"
 
-[node name="quit_menubutton" type="MenuButton" parent="MarginContainer/VBoxContainer"]
+[node name="quit_menubutton" type="MenuButton" parent="MarginContainer/VBoxContainer/VBoxContainer2/MarginContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.176471, 0.176471, 0.376471, 1)
 theme_override_colors/font_pressed_color = Color(1, 0.517647, 0, 1)
@@ -141,8 +177,14 @@ theme_override_fonts/font = ExtResource("4_y5ywt")
 theme_override_font_sizes/font_size = 25
 text = "QUIT"
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/test_menubutton" to="." method="_on_test_menubutton_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/help_menubutton" to="." method="_on_help_menubutton_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/credits_menubutton" to="." method="_on_credits_menubutton_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/quit_menubutton" to="." method="_on_quit_menubutton_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/quit_menubutton" to="." method="_on_credits_menubutton_pressed"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(594, 314)
+scale = Vector2(0.982422, 0.634766)
+texture = ExtResource("6_5qha3")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer2/MarginContainer/MarginContainer/VBoxContainer/test_menubutton" to="." method="_on_test_menubutton_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer2/MarginContainer/MarginContainer/VBoxContainer/help_menubutton" to="." method="_on_help_menubutton_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer2/MarginContainer/MarginContainer/VBoxContainer/credits_menubutton" to="." method="_on_credits_menubutton_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer2/MarginContainer/MarginContainer/VBoxContainer/quit_menubutton" to="." method="_on_quit_menubutton_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer2/MarginContainer/MarginContainer/VBoxContainer/quit_menubutton" to="." method="_on_credits_menubutton_pressed"]

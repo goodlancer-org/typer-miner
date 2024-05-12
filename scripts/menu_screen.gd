@@ -1,5 +1,14 @@
 extends Control
 
+
+func _ready():
+	await get_tree().create_timer(2).timeout 
+	get_node("Sprite2D").visible = true
+	await get_tree().create_timer(5).timeout 
+	get_node("MarginContainer").visible = true	
+	get_node("Sprite2D").visible = false	
+
+
 func _on_credits_menubutton_pressed():
 	Scenes.show_credits()
 
