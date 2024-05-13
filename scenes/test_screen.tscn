@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/test_screen.gd" id="1_6nid1"]
 [ext_resource type="Texture2D" uid="uid://bi6qkpmrc5t2y" path="res://images/Purple.png" id="2_klmo2"]
 [ext_resource type="Texture2D" uid="uid://i5kfwiq3p73q" path="res://images/keyboard_help.jpg" id="3_dom6o"]
-[ext_resource type="Texture2D" uid="uid://pjdqh61xv5v8" path="res://images/key.png" id="4_so327"]
+[ext_resource type="Texture2D" uid="uid://b3p543gfoncn8" path="res://images/key_alpha.png" id="4_f88f2"]
 [ext_resource type="Texture2D" uid="uid://cfy7td3xtej52" path="res://images/Yellow.png" id="5_wfg17"]
 [ext_resource type="AudioStream" uid="uid://ccaviysb1cq24" path="res://sound/spacebar-click-keyboard.mp3" id="6_vy3gu"]
 [ext_resource type="AudioStream" uid="uid://2pdqvqxv1hca" path="res://sound/success-1-6297.mp3" id="7_w11hh"]
@@ -18,10 +18,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [1]
+"values": [1, 0]
 }
 
 [sub_resource type="Animation" id="Animation_4bbln"]
@@ -116,8 +116,8 @@ grow_vertical = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/TextureRect2/Control"]
 position = Vector2(-19, -10)
-texture = ExtResource("4_so327")
-hframes = 5
+texture = ExtResource("4_f88f2")
+hframes = 2
 frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="VBoxContainer/TextureRect2/Control"]

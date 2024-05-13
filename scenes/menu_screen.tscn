@@ -186,5 +186,5 @@ texture = ExtResource("6_5qha3")
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer2/MarginContainer/MarginContainer/VBoxContainer/test_menubutton" to="." method="_on_test_menubutton_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer2/MarginContainer/MarginContainer/VBoxContainer/help_menubutton" to="." method="_on_help_menubutton_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer2/MarginContainer/MarginContainer/VBoxContainer/credits_menubutton" to="." method="_on_credits_menubutton_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer2/MarginContainer/MarginContainer/VBoxContainer/quit_menubutton" to="." method="_on_quit_menubutton_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer2/MarginContainer/MarginContainer/VBoxContainer/quit_menubutton" to="." method="_on_credits_menubutton_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer2/MarginContainer/MarginContainer/VBoxContainer/quit_menubutton" to="." method="_on_quit_menubutton_pressed"]
