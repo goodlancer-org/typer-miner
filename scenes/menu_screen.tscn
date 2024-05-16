@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bprq75q63kw0v"]
 
 [ext_resource type="Script" path="res://scripts/menu_screen.gd" id="1_g3053"]
-[ext_resource type="Texture2D" uid="uid://hg7dy00ce36i" path="res://images/DALL·E_2024_05_14_19_21_49_Two_large_mountains_with_a_wide_field.webp" id="2_7llot"]
+[ext_resource type="Texture2D" uid="uid://bxc7qw0v1cr21" path="res://images/mountain_bright.jpg" id="2_b82ro"]
 [ext_resource type="Texture2D" uid="uid://c06ibogskgu8v" path="res://images/Blue.png" id="2_u87c5"]
 [ext_resource type="AudioStream" uid="uid://dnu33icy1l6kt" path="res://sound/Happy Mistake - RKVC.mp3" id="3_e65wx"]
 [ext_resource type="FontFile" uid="uid://beaeaw67k2s71" path="res://fonts/sofachrome rg it.otf" id="4_y5ywt"]
@@ -26,8 +26,8 @@ offset_top = -5.14288
 offset_bottom = 5.14288
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_7llot")
-expand_mode = 5
+texture = ExtResource("2_b82ro")
+expand_mode = 3
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_e65wx")
@@ -86,7 +86,7 @@ theme_override_constants/margin_right = 0
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 4
 size_flags_vertical = 8
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer2"]
