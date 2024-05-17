@@ -191,15 +191,17 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -40.0
-offset_top = -23.0
+offset_left = -258.0
+offset_top = -59.0
+offset_right = -2.0
+offset_bottom = 4.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_colors/font_color = Color(0.933333, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(1, 0.517647, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 0.517647, 0, 1)
-theme_override_font_sizes/font_size = 45
-text = "v2024.05.14"
+theme_override_font_sizes/font_size = 40
+text = "v2024.05.17"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer2/MarginContainer/MarginContainer/VBoxContainer/test_menubutton" to="." method="_on_test_menubutton_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer2/MarginContainer/MarginContainer/VBoxContainer/help_menubutton" to="." method="_on_help_menubutton_pressed"]
