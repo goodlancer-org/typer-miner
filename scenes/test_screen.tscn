@@ -67,6 +67,25 @@ texture = ExtResource("2_klmo2")
 expand_mode = 1
 stretch_mode = 1
 
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -112.0
+offset_right = 951.0
+offset_bottom = 1.0
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0.176471, 0.176471, 0.376471, 1)
+theme_override_colors/font_shadow_color = Color(1, 0.517647, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 0.517647, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "TEST
+print visible text"
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -84,6 +103,7 @@ theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 10
 
 [node name="Text" type="RichTextLabel" parent="VBoxContainer/MarginContainer"]
+visible = false
 layout_mode = 2
 theme_override_colors/default_color = Color(0.45098, 0.45098, 0.45098, 1)
 theme_override_colors/font_selected_color = Color(1, 0.517647, 0, 1)
@@ -178,19 +198,60 @@ stream = ExtResource("7_w11hh")
 [node name="ErrorSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_eqr3s")
 
-[node name="Label" type="Label" parent="."]
+[node name="MarginContainerSelect" type="MarginContainer" parent="."]
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -1.0
-offset_top = -112.0
-offset_right = 951.0
-offset_bottom = 1.0
-grow_vertical = 0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainerSelect"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="MarginContainerSelect/VBoxContainer"]
+layout_mode = 2
 theme_override_colors/font_color = Color(0.176471, 0.176471, 0.376471, 1)
 theme_override_colors/font_shadow_color = Color(1, 0.517647, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 0.517647, 0, 1)
-theme_override_font_sizes/font_size = 40
-text = "TEST
-print visible text"
+theme_override_font_sizes/font_size = 80
+text = "Select text length"
+
+[node name="level select easy" type="MenuButton" parent="MarginContainerSelect/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(1, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Level 1 (easy)"
+
+[node name="level select normal" type="MenuButton" parent="MarginContainerSelect/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(1, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Level 2 (normal)"
+
+[node name="level select hard" type="MenuButton" parent="MarginContainerSelect/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(1, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Level 3 (hard)"
+
+[connection signal="pressed" from="MarginContainerSelect/VBoxContainer/level select easy" to="." method="_on_level_select_easy_pressed"]
+[connection signal="pressed" from="MarginContainerSelect/VBoxContainer/level select normal" to="." method="_on_level_select_normal_pressed"]
+[connection signal="pressed" from="MarginContainerSelect/VBoxContainer/level select hard" to="." method="_on_level_select_hard_pressed"]

@@ -1,20 +1,10 @@
 extends Control
 
-var texts = []
-var text
+var text = 'ooo'
 var chars_entered = 0
 var text2show = ""
 var errors = 0
 var time_start = 0
-
-func _ready():
-	texts.append(FileAccess.open("res://texts/text1.txt", FileAccess.READ).get_as_text())
-	texts.append(FileAccess.open("res://texts/text2.txt", FileAccess.READ).get_as_text())
-	texts.append(FileAccess.open("res://texts/text3.txt", FileAccess.READ).get_as_text())
-	
-	text = texts[0]
-	
-	get_node("VBoxContainer/MarginContainer/Text").text = text
 	
 func _process(delta):
 	var sprite = get_node("VBoxContainer/TextureRect2/Control/Sprite2D")
@@ -42,7 +32,7 @@ func _unhandled_input(event):
 					text.substr(chars_entered, text.length()-chars_entered)
 				get_node("VBoxContainer/MarginContainer/Text").text = text2show
 				
-				if chars_entered >= text.length():
+				if chars_entered >= text.length()-1:
 					
 					var time = Time.get_ticks_msec() - time_start
 					var speed = text.length()*60*1000/time
@@ -58,3 +48,18 @@ func _unhandled_input(event):
 					var errors = 100*errors/text.length()
 					get_node("Result/MarginContainer/VBoxContainer/ResultErrors").text = "Total error rate = " + str(errors)+ \
 							"%"
+
+func select_text(file_name):
+	text = (FileAccess.open(file_name, FileAccess.READ).get_as_text())
+	get_node("VBoxContainer/MarginContainer/Text").text = text
+	get_node("MarginContainerSelect").visible = false
+	get_node("VBoxContainer/MarginContainer/Text").visible = true	
+
+func _on_level_select_easy_pressed():
+	select_text("res://texts/text1.txt")
+	
+func _on_level_select_normal_pressed():
+	select_text("res://texts/text2.txt")
+
+func _on_level_select_hard_pressed():
+	select_text("res://texts/text3.txt")

@@ -34,7 +34,6 @@ stream = ExtResource("3_e65wx")
 autoplay = true
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -185,8 +184,25 @@ position = Vector2(594, 314)
 scale = Vector2(0.982422, 0.634766)
 texture = ExtResource("6_5qha3")
 
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.933333, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0.517647, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 0.517647, 0, 1)
+theme_override_font_sizes/font_size = 45
+text = "v2024.05.14"
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer2/MarginContainer/MarginContainer/VBoxContainer/test_menubutton" to="." method="_on_test_menubutton_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer2/MarginContainer/MarginContainer/VBoxContainer/help_menubutton" to="." method="_on_help_menubutton_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer2/MarginContainer/MarginContainer/VBoxContainer/credits_menubutton" to="." method="_on_credits_menubutton_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer2/MarginContainer/MarginContainer/VBoxContainer/quit_menubutton" to="." method="_on_credits_menubutton_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer2/MarginContainer/MarginContainer/VBoxContainer/quit_menubutton" to="." method="_on_quit_menubutton_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer2/MarginContainer/MarginContainer/VBoxContainer/quit_menubutton" to="." method="_on_credits_menubutton_pressed"]
